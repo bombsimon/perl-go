@@ -22,7 +22,7 @@ func debugMe(maybe1, maybe2, maybe3 bool) {
     }
 
     if maybe3 {
-        warn.Here("Uhh, I'm having an error: %s", "UNKNOWN")
+        warn.Here(fmt.Sprintf("Uhh, I'm having an error: %s", "UNKNOWN"))
     }
 }
 ```
@@ -43,5 +43,10 @@ func lists() {
 
     newList := grep.First("item", []string{"not item", "item", "item"})
     // newList == "item"
+
+    isFound := grep.Find([]string{"a", "b", "c"}, func(s string) bool {
+        return s == "b"
+    })
+    // isFound == true
 }
 ```
