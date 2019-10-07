@@ -1,4 +1,4 @@
-module github.com/perl-go
+module github.com/bombsimon/perl-go
 
 go 1.13
 
