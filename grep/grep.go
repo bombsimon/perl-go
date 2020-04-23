@@ -33,6 +33,19 @@ func Find(list []string, match func(item string) bool) bool {
 	return false
 }
 
+// FindI takes a list and passes each method to a function. If the function the
+// item is passed to returns true it's to be seen as a match. This will send the
+// item as an interface{} and take a list of []interface{}.
+func FindI(list []interface{}, match func(item interface{}) bool) bool {
+	for _, v := range list {
+		if match(v) {
+			return true
+		}
+	}
+
+	return false
+}
+
 func searchList(v string, l []string, first bool) []string {
 	var re *regexp.Regexp
 
